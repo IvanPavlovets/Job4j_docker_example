@@ -1,16 +1,17 @@
-# Создание Образа, на основе другого образа через Dockerfile.
+## Создание Образа, через другой образ + Dockerfile.
 Пример создания docker image на основании окружения самого проекта + Dockerfile.
 Cам проект представляет собой один единсвеный класс Main.
 Окружение этого приложения: java + maven.
 
-**Создаем проект**<br>
+## Создаем проект
 
 Проект создается в Idea как обычно - File > New > Project
 Тип проекта: Java
 Build system:  Maven
 Далее добавляем .gitignore и README.
 
-**Maven Shade Plugin**<br>
+
+## Maven Shade Plugin
 
 добавляем в pom.xml Maven Shade Plugin,<br>
 который собирает скомпилированный код в jar - архив (runnable-jar).
@@ -23,7 +24,8 @@ Build system:  Maven
 ```
 mainClass - указывает на точку входа в программу.
 
-**Создаем Dockerfile**<br>
+
+## Создаем Dockerfile
 
 В корне проекта создаем файл Dockerfile.
 
@@ -58,7 +60,8 @@ _Примечание. Все команды будут выполнятся в 
 **CMD** указывает что мы будем запускать, когда мы будем запускать контейнер.<br>
 В данном случае это target/main.jar
 
-**Cоздаем образ на основании Dockerfile**
+
+## Cоздаем образ на основании Dockerfile
 
 В терминал Linux и установите git client
 ```
@@ -89,6 +92,6 @@ docker images
 Запустим образ
 
 ```
-docker run befb7c38f8b7
+docker run a6cabd2778ac
 ```
 ![Image of addPost](https://github.com/IvanPavlovets/job4j_docker_example/blob/master/images/run.png)<br>
